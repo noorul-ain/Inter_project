@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block content %}
+<h1 text="center" class="text-secondary text-center">Home page</h1>
+<div class="conratiner">
+  <div class="row">
+    <div class="col col-8 offset-2 font-weight-bold">
+      <form action="" method="POST">
+        {% csrf_token %} {{form.as_p}}
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+  <br />
+  <br /><br /> <br /><br /> <br /><br />
+  <br /><br />  <br /><br />
+
+  <div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">S.no</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Password</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <!--Display Data-->
+        {% for i in data %}
+        <tr>
+          <th scope="row">{{i.id}}</th>
+          <td>{{i.name}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.password}}</td>
+
+          <td><a href='{% url "updatedata" i.id %}'>UpdateData</a></td>
+
+          <td> <form action="{% url "deletedata" i.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Delete</button></form></td>
+         
+
+        </tr>
+            
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block content  %}
+<h1 text="center" class="text-secondary text-center">Update Data</h1>
+{% comment %} <div class="conratiner"> {% endcomment %}
+    {% comment %} <div class="row"> {% endcomment %}
+      {% comment %} <div class="col col-8 offset-2 font-weight-bold"> {% endcomment %}
+        <form action="" method="POST">
+          {% csrf_token %} {{form.as_p}}
+          <input type="submit" value="Update" />
+        </form>
+      {% comment %} </div>
+      </div>
+      </div> {% endcomment %}
+
+
+{% endblock content  %}
